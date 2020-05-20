@@ -28,7 +28,7 @@ class NavBar extends Component {
                         </a>
                         <ul className='dropdown-menu'>
                             <li className='user-header'>
-                                <img ser='http://lorempixel.com/160/160/abstractc'
+                                <img src='http://lorempixel.com/160/160/abstractc'
                                     className='user-circle' alt='User Image' />
                                 <p>{name} <span>{email}</span></p>
                             </li>

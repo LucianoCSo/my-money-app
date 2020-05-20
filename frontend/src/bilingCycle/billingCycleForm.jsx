@@ -3,17 +3,17 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { reduxForm, Field, formValueSelector } from 'redux-form'
 
-import { init } from './blillingCycleAction'
-import labelAndInput from '../common/form//labelAndInput'
-import ItemList from './itenKist'
+import { init } from './billingCycleAction'
+import labelAndInput from '../common/form/labelAndInput'
+import ItemList from './itenList'
 import Sumry from './sumary'
 
 class BillingCycleForm extends Component {
     calculateSummary() {
         const soma = (t, v) => t + v
         return{
-            sumOfCredts: this.props.credits.map(c => +c.value || 0).reduce(soma),
-            sunOfDebts: this.props.debts.map(d => +d.value || 0).reduce(soma)
+            sumOfCredts: this.props.credits.map(c => +c.value || 0).reduce(soma, 0),
+            sunOfDebts: this.props.debts.map(d => +d.value || 0).reduce(soma, 0)
         }
     }
 
@@ -29,11 +29,13 @@ class BillingCycleForm extends Component {
                         type='number' label='Mês' cols='12 4' placeholder='Informe o mês.' />
                     <Field name='year' component={labelAndInput} readOnly={readOnly}
                         type='number' label='Ano' cols='12 4' placeholder='Informe o ano.' />
+                    
                     <Sumry credts={sumOfCredts} debts={sunOfDebts} />
+                    
                     <ItemList cols='12 6' list={credits} readOnly={readOnly}
-                        filde='credts' legend='Créditos' />
+                        field='credts' legend='Créditos' />
                     <ItemList cols='12 6' list={debts} readOnly={readOnly}
-                        filde='debts' legend='Débitos' showStatus={true} />
+                        field='debts' legend='Débitos' showStatus={true} />
                 </div>
                 <div className="box-footer">
                     <button type="submit" className={`btn btn-${this.props.submitClass}`}>

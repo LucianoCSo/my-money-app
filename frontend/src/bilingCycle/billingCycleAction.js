@@ -42,7 +42,7 @@ function submit(values, method){
 }
 
 export function showUpdate(billingCycle){
-    return showTable(billingCycle, 'tabUpdate')
+    return showTable(billingCycle, 'tabUpdate') 
 }
 
 export function showDelete(billingCycle){

@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs')
 const User = require('./user')
 const env = require('../../.env')
 
-const emailRegex = /\S+@\S+\.\S+/
+const emailRegex =  /\S+@\S+\.\S+/
 const passwordRegex = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})/
 
 const sendErrorsFromDB = (res, dbErrors) => {
@@ -40,7 +40,7 @@ const validateToken = (req, res, next) => {
     })
 }
 
-const signup = (req, res, any) => {
+const signup = (req, res, next) => {
     const name = req.body.name || ''
     const email = req.body.email || ''
     const password = req.body.password || ''

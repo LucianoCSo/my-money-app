@@ -3,7 +3,6 @@ import React from 'react'
 import Header from '../common/template/header'
 import Sidebar from '../common/template/sidbar'
 import Footer from '../common/template/footer'
-import Routes from './routes'
 import Messager from '../common/msg/messager'
 
 export default props => (
@@ -11,7 +10,7 @@ export default props => (
         <Header />
         <Sidebar />
         <div className="content-wrapper">
-            <Routes />
+            {props.children}
         </div>
         <Footer />
         <Messager />

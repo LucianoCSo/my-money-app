@@ -10,13 +10,13 @@ import If from '../common/operador/if'
 class ItemList extends Component {
     add(index, item = {}) {
         if (!this.props.readOnly) {
-            this.props.arrayInsert('billingCycleForm', this.props.filde, index, item)
+            this.props.arrayInsert('billingCycleForm', this.props.field, index, item)
         }
     }
 
     remove(index) {
         if (!this.props.readOnly && this.props.list.length > 1) {
-            this.props.arrayRemove('billingCycleForm', this.props.filde, index)
+            this.props.arrayRemove('billingCycleForm', this.props.field, index)
         }
     }
 
@@ -24,14 +24,14 @@ class ItemList extends Component {
         const list = this.props.list || []
         return list.map((item, index) => (
             <tr key={index}>
-                <td><Field name={`${this.props.filde}[${index}].name`} component={Input}
+                <td><Field name={`${this.props.field}[${index}].name`} component={Input}
                     placeholder='Informe o nome.' readOnly={this.props.readOnly} />
                 </td>
-                <td><Field name={`${this.props.filde}[${index}].value`} component={Input}
+                <td><Field name={`${this.props.field}[${index}].value`} component={Input}
                     placeholder="Informe o valor." readOnly={this.props.readOnly} type='number' />
                 </td>
                 <If test={this.props.showStatus}>
-                    <td><Field name={`${this.props.filde}[${index}].status`} component={Input}
+                    <td><Field name={`${this.props.field}[${index}].status`} component={Input}
                         placeholder="Informe o status." readOnly={this.props.readOnly} />
                     </td>
                 </If>

@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux'
 import { login, signup } from './authAction'
 import Row from '../common/layout/row'
 import Grid from '../common/layout/grid'
-import If from '../common/operador/if'
 import Messages from '../common/msg/messager'
 import Input from '../common/form/inputAuth'
 
@@ -18,6 +17,7 @@ class Auth extends Component {
     }
 
     changeMode() {
+        console.log(this.state.loginMode)
         this.setState({ loginMode: !this.state.loginMode })
     }
 

@@ -9,9 +9,10 @@ import TabsHeaders from '../common/tab/tabsHeaders'
 import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
+import { init, create, update, excluir } from './billingCycleAction'
+
 import List from './billingCycleList'
 import Form from './billingCycleForm'
-import { init, create, update, excluir } from './blillingCycleAction'
 
 class BillingCycle extends Component {
 
@@ -57,10 +58,7 @@ class BillingCycle extends Component {
 
 const mapDispatchToProps = dispatch => bindActionCreators(
     {
-        init,
-        create, 
-        update,
-        excluir
+        init, create, update, excluir
     }, dispatch)
 
 export default connect(null, mapDispatchToProps)(BillingCycle)
